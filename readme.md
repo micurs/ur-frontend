@@ -232,8 +232,9 @@ This works well and we even have the browser correctly managing our click histor
 # Conclusion
 
 Using the `Universal-router` on the front-end with React seems to work pretty well. 
-I like the deneral approach of the library focused on matching a path with an available route and leaving to the
-client the decision on the data to return by the action function.
+I like the general approach of the library focused on matching a path with an available route and leaving to the
+developer the decision on the data to return by the action function. This is the approach that makes this router 
+working with different framework even on the backend with Express or Koa.
 
 This approach works well for single page applications that render their pages completely in the frontend.
 With Universal-router you can manage complex routes and structure your react application the way it makes sense to you.

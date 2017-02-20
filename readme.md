@@ -1,4 +1,4 @@
-# Universal-Router for Frontend routing on React
+# Universal-Router for frontend routing with React
 
 ## Intro
 
@@ -7,6 +7,8 @@ In this example we use TypeScript and WebPack to take advantage of the es-6 synt
 get type help thanks to the typedefinitons files available for React and Universal-Router.
 
 You should be able top write pretty much the same code using bebel.
+
+The full project is available on [`GitHub`]()
 
 ## Prerequisites
 

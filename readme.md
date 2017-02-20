@@ -224,7 +224,7 @@ window.addEventListener( 'hashchange', onHashChanged );
 
 In the event function we remove the initial `#` and replace it with the `/` to produce paths matchin our routes.
 
-When we click on the menu items we will see the address change to 'http://localhost:9000/#welcome` or `http://localhost:9000/#welcome/home`.
+When we click on the menu items we will see the address change to `http://localhost:9000/#welcome` or `http://localhost:9000/#welcome/home`.
 However the path passed to the resolve function will be `/welcome` or `/welcome/home`.
 
 This works well and we even have the browser correctly managing our click history. 

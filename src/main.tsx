@@ -2,28 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { resolve, Route, Context, ActionContext } from 'universal-router';
 
-type FrontRoutes = Route< ActionContext | Context  ,React.ReactElement<any> >[];
-
 const page = document.getElementById('page');
-
-// Here we define the possible routes
-// const routes: FrontRoutes = [
-//   { path: '/', action: () => <h2>root</h2> },
-//   { 
-//     path: '/welcome', 
-//     action: undefined, // () => <h2>pippo</h2>,
-//     children: [
-//       {
-//         path : '/',
-//         action: ( ctx: ActionContext ) => <h2>Welcome to universal routing</h2>,
-//       },
-//       {
-//         path : '/:message',
-//         action( ctx: ActionContext ) { return <h2>Welcome at { ctx.params['message']} to universal routing</h2> },
-//       }
-//     ]
-//   }
-// ];
 
 const routes = [
   { path: '/', action: () => <h2>root</h2> },
@@ -54,17 +33,9 @@ function renderOnPath( path: string ) {
 
 const onHashChanged = () => {
   const path = `/${window.location.hash.substr(1)}`; 
-  // We use replace state because the pushState was done anutomatically when following the link
-  // history.replaceState( { path: path }, path, path );
   renderOnPath(path);
 }
 
-// const onPopState = ( event ) => {
-//   if ( event.state ) // We know how to manage going back to a state with a state. 
-//     renderOnPath(event.state.path);
-// }
-
 window.addEventListener( 'hashchange', onHashChanged );
-// window.addEventListener( 'popstate', onPopState );
 
 onHashChanged();

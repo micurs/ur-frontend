@@ -6,16 +6,16 @@ This is a quick tutorial on how to use the [`Universal-Router`](https://github.c
 In this example we use TypeScript and WebPack to take advantage of the es-6 syntax and
 get type help thanks to the typedefinitons files available for React and Universal-Router.
 
-You should be able top write pretty much the same code using bebel.
+You should be able top write pretty much the same code using Babel.
 
-The full project is available on [`GitHub`]()
+The full project is available on [`GitHub`](https://github.com/micurs/ur-frontend)
 
 ## Prerequisites
 
 I like to use [`Yarn`](https://yarnpkg.com/en/) to manage our dependencies. Let's install it globally:
 
 ```
-  npm insyall yarn -g
+  npm install yarn -g
   yarn init -y
 ```
 
@@ -79,7 +79,8 @@ To compile our source files into Javascript we will use the tsc compiler. We can
         "jsx": "react"
     },
     "exclude": [
-      "node_modules", "dist"
+      "node_modules",
+      "dist"
     ]
 }
 ```
@@ -89,7 +90,7 @@ result Javascript in the `./dist` directory.
 
 ## Webpack
 
-Our configuration for webpack is simple and uses the new syntax for webpack 2:
+Our configuration for webpack is simple and uses the new syntax for Webpack 2:
 
 ```javascript
 const path = require('path');
@@ -120,7 +121,7 @@ We save this as `webpack.config.js`. With this in place we can just add our buil
 ```json
 {
   ...
-    "scripts": {
+  "scripts": {
     "build": "webpack",
     "start": "http-server -p 9000"
   },
@@ -131,7 +132,7 @@ We save this as `webpack.config.js`. With this in place we can just add our buil
 ## Universal-router: resolving routes
 
 We can now write our application code in `./src/main.tsx`. 
-Let's import React and ReactDOM amd the main functio we need from `universal-router`: the `resolve()` function. 
+Let's import React and ReactDOM amd the main function we need from `universal-router`: the `resolve()` function. 
 
 We import it directly using the ES6 syntax:
 
@@ -154,7 +155,7 @@ resolve( routes, { path: pathtoresolve } )
 });
 ```
 
-The `resolve()` function needs a routes object, that is, a simple array or paths and actions couples like this:
+The `resolve()` function needs a routes object, that is, a simple array of paths and actions couples like this:
 
 ```typescript
   const routes = [
@@ -222,7 +223,7 @@ const onHashChanged = () => {
 window.addEventListener( 'hashchange', onHashChanged );
 ```
 
-In the event function we remove the initial `#` and replace it with the `/` to produce paths matchin our routes.
+In the event function we remove the initial `#` and replace it with the `/` to produce paths matching our routes.
 
 When we click on the menu items we will see the address change to `http://localhost:9000/#welcome` or `http://localhost:9000/#welcome/home`.
 However the path passed to the resolve function will be `/welcome` or `/welcome/home`.
@@ -232,11 +233,11 @@ This works well and we even have the browser correctly managing our click histor
 # Conclusion
 
 Using the `Universal-router` on the front-end with React seems to work pretty well. 
-I like the general approach of the library focused on matching a path with an available route and leaving to the
-developer the decision on the data to return by the action function. This is the approach that makes this router 
-working with different framework even on the backend with Express or Koa.
+I like the general approach of the library focused on matching a path with an available route and leaving it up to the
+developer to decide on the type of data to return by the action function. This approach makes this router suitable for 
+interfacing with different frameworks and can be used with a variety of backend technology like Express or Koa.
 
 This approach works well for single page applications that render their pages completely in the frontend.
-With Universal-router you can manage complex routes and structure your react application the way it makes sense to you.
+With Universal-router you can manage complex routes and structure your React application the way it makes sense to you.
 
 
